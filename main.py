@@ -49,6 +49,16 @@ codes_searched = [] # all list of codes searched from each thread
 codes_data = {} # "externalIp": {"serverName":"e.t.c."}
 jwt_expired = False
 
+def new_ip(ip_address): # ip address with port
+    f = open("all_ips.txt","r")
+    
+    for line in f.readlines():
+        if line.replace("\n", "") == ip_address:
+            f.close()
+            return True
+    
+    
+
 def write_ip(ip_address):
     f = open("all_ips.txt","a")
     f.write(f"{ip_address}\n")
@@ -103,7 +113,6 @@ def find_codes(codes_list, cookies, printCodesDone=False):
                 passcodes = [passcode]
                 server_data["passcodes"] = passcodes
                 codes_data[ip] = server_data
-                write_ip(ip)
                 write_codes()
             else: # if it's there already
                 passcodes = codes_data[ip]["passcodes"]
@@ -111,6 +120,9 @@ def find_codes(codes_list, cookies, printCodesDone=False):
                 server_data["passcodes"] = passcodes
                 codes_data[ip] = server_data
                 write_codes()
+
+            if new_ip(ip_address): # write the ip and port if it's new
+                write_ip(ip)
         elif r.status_code != 410: # random status code (410 is just "Routing table entry has expired")...
             print("Unexpected status code..")
             print(r.content)
