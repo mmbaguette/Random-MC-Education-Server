@@ -8,28 +8,27 @@ import time
 
 '''
 Made by Ali Mohammed-Ali
+GitHub: mmbaguette
 
 This program uses the Minecaft Education Edition undocumented API to find random servers.
 This goes through every single possible code combination.
 
 THIS THING TAKES FRIGIN ~12 HOURS
-'''
 
-'''
-UPDATE
+--UPDATE--
 I'll be using multi-threading to speed up the process a TON.
 Can we find all codes in under 5 hours?
 
-RESULT
+--RESULT--
 its like super fast... all codes in 2 hours or less
 
-UPDATE
+--UPDATE--
 Multi-processing???
 
-RESULT
+--RESULT--
 meh too complex not worth it lol
 
-UPDATE
+--UPDATE--
 instead of setting the number of threads to os.cpucount, just set to a big number! 
 (45 threads, 58 requests a second!) however, sometimes it doesn't work that fast
 '''
