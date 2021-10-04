@@ -30,6 +30,9 @@ meh too complex not worth it lol
 --UPDATE--
 instead of setting the number of threads to os.cpucount, just set to a big number! 
 (45 threads, 58 requests a second!) however, sometimes it doesn't work that fast
+
+--UPDATE--
+MOST codes found after ~25000 - ~29000 and end at ~37000 -- Might start and end there?
 '''
 
 joinInfodata = {
@@ -55,6 +58,7 @@ def new_ip(ip_address): # ip address with port
         if line.replace("\n", "") == ip_address:
             f.close()
             return False
+    f.close()
     return True # no matching ip and port
 
 def write_ip(ip_address):
@@ -132,7 +136,7 @@ def find_codes(codes_list, cookies, printCodesDone=False):
 
 def find_codes_threading(possible_codes, threads, token, cookies):
     global start
-    print(f"\nSearching {len(possible_codes)} codes!\n")
+    print(f"\nSearching {len(possible_codes)} codes!")
     print(f"\nThe time is now {time.ctime(time.time())}\n")
     joinInfodata["accessToken"] = token
     code_threads = [] # stores all threads that are searching for codes
@@ -143,6 +147,7 @@ def find_codes_threading(possible_codes, threads, token, cookies):
         my_chunks = list(divide_chunks(possible_codes, int(len(possible_codes) / threads)))
 
     firstThread = True
+
     for chunk in my_chunks:
         code_thread = threading.Thread(target=find_codes, args=(chunk,cookies,firstThread))
         print(f"Starting thread {code_thread.getName()} with {len(chunk)} requests.")
@@ -189,7 +194,7 @@ def main():
 
     codeLength = 4  # length of server code
     numbers = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17] # possible values in each code
-    codePermutations = list(itertools.permutations(numbers, codeLength))
+    codePermutations = list(itertools.permutations(numbers, codeLength))[25000:]
     find_codes_threading(
         codePermutations, # possible codes
         threads, # threads
