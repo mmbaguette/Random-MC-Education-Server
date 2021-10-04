@@ -194,7 +194,7 @@ def main():
 
     codeLength = 4  # length of server code
     numbers = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17] # possible values in each code
-    codePermutations = list(itertools.permutations(numbers, codeLength))[25000:]
+    codePermutations = list(itertools.permutations(numbers, codeLength))
     find_codes_threading(
         codePermutations, # possible codes
         threads, # threads
