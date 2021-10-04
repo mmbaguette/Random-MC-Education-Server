@@ -7,8 +7,7 @@ Join random Minecraft Education Servers in your school board, by brute-forcing e
 
 ![Choosing codes](https://i.stack.imgur.com/vMz19.png)
 
-Using as many threads as possible, this program will go through 73440 different combinations of server codes like the ones 
-you enter when you join a server, and finds which codes exist.
+Using as many threads as possible, this program will go through 73440 different combinations of server codes, finds which codes exist, and returns the IP address and code for that server, along with its description and server owner stored in a `codes.json` file.
 
 Fastest time on my gaming PC: **21 minutes** (all code combinations searched!)
 
