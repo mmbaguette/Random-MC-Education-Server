@@ -57,7 +57,7 @@ def new_ip(ip_address): # ip address with port
             f.close()
             return True
     
-    
+
 
 def write_ip(ip_address):
     f = open("all_ips.txt","a")
@@ -121,7 +121,7 @@ def find_codes(codes_list, cookies, printCodesDone=False):
                 codes_data[ip] = server_data
                 write_codes()
 
-            if new_ip(ip_address): # write the ip and port if it's new
+            if new_ip(ip): # write the ip and port if it's new
                 write_ip(ip)
         elif r.status_code != 410: # random status code (410 is just "Routing table entry has expired")...
             print("Unexpected status code..")
@@ -135,7 +135,7 @@ def find_codes(codes_list, cookies, printCodesDone=False):
 def find_codes_threading(possible_codes, threads, token, cookies):
     global start
     print(f"\nSearching {len(possible_codes)} codes!\n")
-    print(f"The time is now {time.ctime(time.time())}\n")
+    print(f"\nThe time is now {time.ctime(time.time())}\n")
     joinInfodata["accessToken"] = token
     code_threads = [] # stores all threads that are searching for codes
     
@@ -184,7 +184,7 @@ def find_codes_threading(possible_codes, threads, token, cookies):
         find_codes_threading(new_possible_codes, 0, new_token, cookies)
 
 def main():
-    threads = 40#os.cpu_count()
+    threads = 40 # os.cpu_count()
     f = open("mc token.txt","r")
     accessToken = f.read()
     f.close()
