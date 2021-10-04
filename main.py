@@ -7,8 +7,7 @@ import traceback
 import time
 
 '''
-Made by Ali Mohammed-Ali
-GitHub: mmbaguette
+Written by mmbaguette on GitHub
 
 This program uses the Minecaft Education Edition undocumented API to find random servers.
 This goes through every single possible code combination.
@@ -32,6 +31,7 @@ meh too complex not worth it lol
 instead of setting the number of threads to os.cpucount, just set to a big number! 
 (45 threads, 58 requests a second!) however, sometimes it doesn't work that fast
 '''
+
 joinInfodata = {
   "build": 11470000,
   "locale": "en_US",
@@ -58,7 +58,7 @@ def new_ip(ip_address): # ip address with port
     return False # no matching ip and port
 
 def write_ip(ip_address):
-    f = open("all_ips.txt","w")
+    f = open("all_ips.txt","a")
     f.write(f"{ip_address}\n")
     f.close()
 
