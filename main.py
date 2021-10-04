@@ -56,11 +56,10 @@ def new_ip(ip_address): # ip address with port
         if line.replace("\n", "") == ip_address:
             f.close()
             return True
-    
-
+    return False # no matching ip and port
 
 def write_ip(ip_address):
-    f = open("all_ips.txt","a")
+    f = open("all_ips.txt","w")
     f.write(f"{ip_address}\n")
     f.close()
 
