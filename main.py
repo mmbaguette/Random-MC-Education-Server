@@ -107,7 +107,7 @@ def find_codes(codes_list, cookies, printCodesDone=False):
             ip = server_data["externalIp"]
 
             if not ip in codes_data: # if we didn't find the ip already
-                print("New server! IP:", ip)
+                print(f"\nNew server! IP: {ip}\n")
                 passcodes = [passcode]
                 server_data["passcodes"] = passcodes
                 codes_data[ip] = server_data
@@ -122,7 +122,7 @@ def find_codes(codes_list, cookies, printCodesDone=False):
             if new_ip(ip): # write the ip and port if it's new
                 write_ip(ip)
         elif r.status_code != 410: # random status code (410 is just "Routing table entry has expired")...
-            print("Unexpected status code..")
+            print("\nUnexpected status code..\n")
             print(r.content)
             print(r.status_code)
         
