@@ -31,8 +31,12 @@ meh too complex not worth it lol
 instead of setting the number of threads to os.cpucount, just set to a big number! 
 (45 threads, 58 requests a second!) however, sometimes it doesn't work that fast
 
---UPDATE--
+--UPDATE-- Oct 3 2021
 MOST codes found after ~25000 - ~29000 and end at ~37000 -- Might start and end there?
+
+--RESULT--
+Wrong, maybe just a coincidence that all the codes were there at that time. 
+Only found a single code.
 '''
 
 joinInfodata = {
@@ -50,21 +54,6 @@ user_cookies = {
 codes_searched = [] # all list of codes searched from each thread
 codes_data = {} # "externalIp": {"serverName":"e.t.c."}
 jwt_expired = False
-
-def new_ip(ip_address): # ip address with port
-    f = open("all_ips.txt","r")
-    
-    for line in f.readlines():
-        if line.replace("\n", "") == ip_address:
-            f.close()
-            return False
-    f.close()
-    return True # no matching ip and port
-
-def write_ip(ip_address):
-    f = open("all_ips.txt","a")
-    f.write(f"{ip_address}\n")
-    f.close()
 
 def write_codes():
     # write down the codes we saved
@@ -123,8 +112,6 @@ def find_codes(codes_list, cookies, printCodesDone=False):
                 codes_data[ip] = server_data
                 write_codes()
 
-            if new_ip(ip): # write the ip and port if it's new
-                write_ip(ip)
         elif r.status_code != 410: # random status code (410 is just "Routing table entry has expired")...
             print("\nUnexpected status code..\n")
             print(r.content)
