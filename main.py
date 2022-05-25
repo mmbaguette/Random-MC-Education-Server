@@ -79,7 +79,7 @@ def find_codes(codes_list, cookies, printCodesDone=False):
 
         passcode = passcode[:len(passcode) - 1] # remove last comma from end of string
         joinInfodata["passcode"] = passcode # set data parameters
-        joinInfUurl = "https://discovery.minecrafteduservices.com/joininfo"
+        joinInfUurl = "https://discovery.minecrafteduservices.com/"
 
         try:
             r = requests.post(url=joinInfUurl, json=joinInfodata,cookies=cookies)
