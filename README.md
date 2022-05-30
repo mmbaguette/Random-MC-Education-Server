@@ -5,6 +5,8 @@ Rather, I made this for something I can code on my own time.
 
 Join random Minecraft Education Servers in your school board, by brute-forcing every possible combination of server codes!
 
+Use [mitmproxy](https://mitmproxy.org/) to intercept your access token, and paste it alone in a file called `mc token.txt` in your current working directory (the folder or file path where you run the script).
+
 ![Choosing codes](https://i.stack.imgur.com/vMz19.png)
 
 Using as many threads as possible, this program will go through 73440 different combinations of server codes, finds which codes exist, and returns the IP address and code for that server, along with its description and server owner stored in a `codes.json` file.
