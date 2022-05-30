@@ -19,4 +19,6 @@ Fastest time on my gaming PC: **21 minutes** (all code combinations!)
  - After signing in to MC Education Edition, click on Join World, enter a random code, and wait for mitmproxy to intercept the search request to this URL. 
  - Click on the request, and inside the request payload, look for the `accessToken` value. Copy everything without the quotes (`"`).
 
+- Run the script using the Python programming language: https://www.python.org/. You must be able to know how to use Python to use this program.
+
 **Note: You'll only find codes that you can join from your organization/school board.**
